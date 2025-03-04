@@ -8,8 +8,8 @@ Route::get('/', HomeController::class );
 
 
 
-Route::prefix('/products')->group(function(){
-    Route::get('', [ProductController::class, 'index']);
-    Route::get('/create', [ProductController::class , 'create']);
-    Route::get('/{name}/{categoria?}', [ProductController::class , 'show']);
+Route::prefix('/products')->controller(ProductController::class)->group(function(){
+    Route::get('', 'index');
+    Route::get('/create', 'create');
+    Route::get('/{name}/{categoria?}',  'show');
 });
